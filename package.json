@@ -1,0 +1,51 @@
+{
+  "name": "gh-activity",
+  "version": "0.0.0-development",
+  "description": "Get the latest activity from a GitHub user",
+  "main": "src/index.js",
+  "scripts": {
+    "precommit": "npm run test:single && npm run check-coverage",
+    "commit": "git-cz",
+    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "test": "",
+    "test:single": "istanbul cover -x test/*.test.js _mocha -- -R spec test/*.test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpcano/gh-activity.git"
+  },
+  "keywords": [
+    "github",
+    "activity",
+    "api"
+  ],
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "author": "Jesus Cano <jcanovel@gmail.com> (http://jesus.engineer/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jpcano/gh-activity/issues"
+  },
+  "homepage": "https://github.com/jpcano/gh-activity#readme",
+  "dependencies": {
+    "intl-messageformat": "1.3.0",
+    "javascript-time-ago": "0.4.9"
+  },
+  "devDependencies": {
+    "chai": "4.0.2",
+    "codecov.io": "0.1.6",
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "2.0.0",
+    "husky": "0.14.3",
+    "istanbul": "0.4.5",
+    "mocha": "3.4.2",
+    "semantic-release": "^6.3.6"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  }
+}
